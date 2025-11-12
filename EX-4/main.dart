@@ -1,5 +1,90 @@
 import 'package:flutter/material.dart';
 
+enum WeatherType {
+  sunny(
+    iconPath: 'lib/assets/sunny.png',
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFFE57B95), Color(0xFFD96B85)],
+    ),
+  ),
+  cloudy(
+    iconPath: 'lib/assets/cloudy.png',
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFFB47FF5), Color(0xFF9D6FE6)],
+    ),
+  ),
+  sunnyCloudy(
+    iconPath: 'lib/assets/sunnyCloudy.png',
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFF6FD5C5), Color(0xFF5BC4B4)],
+    ),
+  ),
+  veryCloudy(
+    iconPath: 'lib/assets/veryCloudy.png',
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFFE5A97B), Color(0xFFD99A6B)],
+    ),
+  );
+
+  const WeatherType({required this.iconPath, required this.gradient});
+
+  final String iconPath;
+  final LinearGradient gradient;
+}
+
+enum CityWeather {
+  phnomPenh(
+    cityName: 'Phnom Penh',
+    minTemp: 10.0,
+    maxTemp: 30.0,
+    currentTemp: 12.2,
+    weatherType: WeatherType.cloudy,
+  ),
+  paris(
+    cityName: 'Paris',
+    minTemp: 10.0,
+    maxTemp: 40.0,
+    currentTemp: 22.2,
+    weatherType: WeatherType.sunnyCloudy,
+  ),
+  roma(
+    cityName: 'Rome',
+    minTemp: 10.0,
+    maxTemp: 40.0,
+    currentTemp: 45.2,
+    weatherType: WeatherType.sunny,
+  ),
+  toulouse(
+    cityName: 'Toulouse',
+    minTemp: 10.0,
+    maxTemp: 40.0,
+    currentTemp: 45.2,
+    weatherType: WeatherType.veryCloudy,
+  );
+
+  const CityWeather({
+    required this.cityName,
+    required this.minTemp,
+    required this.maxTemp,
+    required this.currentTemp,
+    required this.weatherType,
+  });
+
+  final String cityName;
+  final double minTemp;
+  final double maxTemp;
+  final double currentTemp;
+  final WeatherType weatherType;
+}
+
 void main() {
   runApp(
     MaterialApp(
@@ -121,89 +206,4 @@ class WeatherCard extends StatelessWidget {
       ),
     );
   }
-}
-
-enum WeatherType {
-  sunny(
-    iconPath: 'lib/assets/sunny.png',
-    gradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [Color(0xFFE57B95), Color(0xFFD96B85)],
-    ),
-  ),
-  cloudy(
-    iconPath: 'lib/assets/cloudy.png',
-    gradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [Color(0xFFB47FF5), Color(0xFF9D6FE6)],
-    ),
-  ),
-  sunnyCloudy(
-    iconPath: 'lib/assets/sunnyCloudy.png',
-    gradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [Color(0xFF6FD5C5), Color(0xFF5BC4B4)],
-    ),
-  ),
-  veryCloudy(
-    iconPath: 'lib/assets/veryCloudy.png',
-    gradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [Color(0xFFE5A97B), Color(0xFFD99A6B)],
-    ),
-  );
-
-  const WeatherType({required this.iconPath, required this.gradient});
-
-  final String iconPath;
-  final LinearGradient gradient;
-}
-
-enum CityWeather {
-  phnomPenh(
-    cityName: 'Phnom Penh',
-    minTemp: 10.0,
-    maxTemp: 30.0,
-    currentTemp: 12.2,
-    weatherType: WeatherType.cloudy,
-  ),
-  paris(
-    cityName: 'Paris',
-    minTemp: 10.0,
-    maxTemp: 40.0,
-    currentTemp: 22.2,
-    weatherType: WeatherType.sunnyCloudy,
-  ),
-  roma(
-    cityName: 'Rome',
-    minTemp: 10.0,
-    maxTemp: 40.0,
-    currentTemp: 45.2,
-    weatherType: WeatherType.sunny,
-  ),
-  toulouse(
-    cityName: 'Toulouse',
-    minTemp: 10.0,
-    maxTemp: 40.0,
-    currentTemp: 45.2,
-    weatherType: WeatherType.veryCloudy,
-  );
-
-  const CityWeather({
-    required this.cityName,
-    required this.minTemp,
-    required this.maxTemp,
-    required this.currentTemp,
-    required this.weatherType,
-  });
-
-  final String cityName;
-  final double minTemp;
-  final double maxTemp;
-  final double currentTemp;
-  final WeatherType weatherType;
 }
